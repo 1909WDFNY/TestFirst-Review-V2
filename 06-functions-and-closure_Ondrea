@@ -1,0 +1,54 @@
+* eslint-disable no-unused-vars */
+function concatString (){
+    const argArr = Array.from(arguments)
+    return argArr.join('')
+}
+
+function yourFunctionRunner (){
+    const argArr = Array.from(arguments)
+    let argValues = argArr.map(func => func())
+    return argValues.join('')
+}
+
+function makeAdder (num){
+    return (innerNum)=> num + innerNum
+}
+
+function once (func){
+    let counter = 0
+    return ()=>{
+        counter > 0? innerFunc = 'the function has already been called...': innerFunc = func()
+        counter ++
+        return innerFunc
+    } 
+}
+
+function createObjectWithClosures (){
+        let value = 0
+      return {
+        oneIncrementer: ()=>{
+            value +=  1
+        },
+        tensIncrementer: ()=>{
+            value += 10
+        },
+        getValue: ()=>{
+            return value
+        },
+        setValue: (newNum)=>{
+            value = newNum
+        }
+      }
+}
+
+function dontSpillTheBeans (secret){
+
+    return {
+        getSecret: ()=>{
+            return secret
+        },
+        setSecret: (newSecret)=>{
+            secret = newSecret || "It's a surprise, don't say anything"
+        }
+    }
+}
