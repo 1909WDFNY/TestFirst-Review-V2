@@ -1,0 +1,21 @@
+const makeIterator = (array) => {
+    let index = 0;
+    return {
+        getIndex () {
+            return index;
+        },
+        getNext () {
+            let returnObj = {
+                value: array[index],
+                done: false
+            };
+            if (returnObj.value === array[array.length]) {
+                returnObj.done = true;
+            }
+            index++;
+
+            return returnObj;
+
+        }
+    };
+}
