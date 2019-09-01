@@ -1,0 +1,30 @@
+const renameFiles = (arrayOfFiles) => {
+    //for each element, loop through all previous elements to see if any of themm is === element
+    return arrayOfFiles.reduce(function(accum, currentFileName, idx) {
+        let currentSlice = arrayOfFiles.slice(0, idx);
+        if (!currentSlice.includes(currentFileName)) {
+            accum.push(currentFileName);
+        } else {
+            for (let n = 1; n < arrayOfFiles.length; n++) {
+                let sliceHere;
+                let newFileName = "";
+                if (currentFileName.includes("(")){
+                    sliceHere = currentFileName.indexOf("(");
+                    newFileName = currentFileName.slice(0, sliceHere) + `(${n})`;
+                    if (!accum.includes(newFileName)) {
+                        accum.push(newFileName);
+                        break;
+                    }
+                } else {
+                   newFileName = currentFileName + `(${n})`;
+                   if (!accum.includes(newFileName)) {
+                    accum.push(newFileName);
+                    break;
+                }
+                }
+
+            }
+        }
+        return accum;
+
+    }, []);
