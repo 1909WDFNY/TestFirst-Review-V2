@@ -1,0 +1,20 @@
+/* eslint-disable no-unused-vars */
+function makeIterator (arrOfVals){
+    let index = 0
+    const iteratObj = {
+        getNext (){
+            index ++
+            let done = false
+            index >= arrOfVals.length+1? done = true:''
+            return {
+                value:arrOfVals[index-1],
+                done
+            }
+        },
+        getIndex (){
+            return index
+        }
+    }
+
+    return iteratObj
+}
