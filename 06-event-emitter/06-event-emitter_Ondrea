@@ -1,0 +1,18 @@
+class MyEventEmitter {
+    constructor (){
+      this.events = {
+      }
+    }
+    addListener (event, callback){
+        if(this.events[event]){
+            this.events[event].push(callback)
+        } else {
+            this.events[event] =  [callback]
+        }
+    }
+    
+    emit (event, ...theArgs) {
+        this.events[event].forEach(element => element.apply(null,[...theArgs]))
+    }
+
+}
