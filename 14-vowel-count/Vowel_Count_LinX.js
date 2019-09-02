@@ -16,3 +16,17 @@ function vowelsCount(str) {
 
     return vowelObj;
 }
+
+//refactored//
+
+function vowelsCount(str) {
+   return str.toLowerCase()
+    .split("")
+    .reduce((lettersObj, letter) => { 
+        if('aeiou'.includes(letter)) {
+            lettersObj[letter]++;
+            lettersObj['total']++;
+        } 
+        return lettersObj;
+    },{a: 0, e: 0, i: 0, o: 0, u: 0, total: 0});
+}
