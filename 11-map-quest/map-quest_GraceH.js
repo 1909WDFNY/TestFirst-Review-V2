@@ -7,11 +7,10 @@ const mapQuest = arr => {
         E: 'W',
         W: 'E'
     };
-    let resultArr = arr.reduce((acc, currDir) => {
+    return arr.reduce((acc, currDir) => {
         (dupPair[acc[acc.length-1]] === currDir) ? acc.pop() : acc.push(currDir);
         return acc;
     }, []);
-    return resultArr;
 }
 
 // with an array and recursion:
