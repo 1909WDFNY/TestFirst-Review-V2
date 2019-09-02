@@ -1,6 +1,5 @@
 function vowelsCount(str) {
     let fixed = str.toLowerCase();
-    let vowels = "aeiou";
     let vowelObj = {a: 0, e: 0, i: 0, o: 0, u: 0, total: 0};
     let charArr = fixed.split("");
 
