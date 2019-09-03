@@ -1,0 +1,10 @@
+function rotater(str) {
+    let direction = true;
+    return function(num) {
+        if(num === str.length) {direction = !direction}
+        if(direction){
+            return str.slice(num)+str.slice(0,num);
+        }
+        return str.slice(str.length - num)+str.slice(0,str.length - num);
+    }
+}
